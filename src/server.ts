@@ -1,9 +1,10 @@
 import { app } from "./app";
+import { env } from "./env";
 
 app
   .listen({
-    port: 3333,
+    port: env.PORT,
   })
   .then(() => {
-    console.log("Ate500 Server Running at port 3333 🚀💸");
+    console.log(`Ate500 Server Running at http://localhost:${env.PORT}🚀💸`);
   });
