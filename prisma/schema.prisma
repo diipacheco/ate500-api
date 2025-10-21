@@ -15,7 +15,7 @@ datasource db {
 }
 
 model Recommendation {
-  id    Int    @id @default(autoincrement())
+  id    String @id @default(uuid())
   name  String
   price Float
   image String
