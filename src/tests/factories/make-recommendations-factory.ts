@@ -7,6 +7,7 @@ export function makeRecommendation() {
     name: faker.commerce.productName(),
     price: faker.number.float(),
     image: faker.image.url(),
+    link: faker.internet.url(),
     createdAt: faker.date.recent(),
   };
 }

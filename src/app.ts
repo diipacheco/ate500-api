@@ -2,8 +2,11 @@ import Fastify from "fastify";
 import { ZodError, z } from "zod";
 
 import { env } from "./env";
+import { recommendationsRoutes } from "./http/controllers/recommendations/routes";
 
 export const app = Fastify();
+
+app.register(recommendationsRoutes);
 
 app.setErrorHandler((error, _request, reply) => {
   if (error instanceof ZodError) {

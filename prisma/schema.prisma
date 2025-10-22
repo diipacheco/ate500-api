@@ -19,6 +19,7 @@ model Recommendation {
   name  String
   price Float
   image String
+  link  String
 
   createdAt DateTime @default(now())
 
