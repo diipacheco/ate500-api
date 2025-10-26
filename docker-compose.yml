@@ -1,11 +1,14 @@
-version: '3'
-
 services:
-  api-solid-pg:
-    image: bitnami/postgresql
-    ports:
-      - 5432:5432
+  ate500-api-redis:
+    image: bitnami/redis
+    container_name: ate500-api-redis
     environment:
-      - POSTGRESQL_USERNAME=docker
-      - POSTGRESQL_PASSWORD=docker
-      - POSTGRESQL_DATABASE=ate500-api
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_PASSWORD=ate500redis
+    ports:
+      - 6379:6379
+    volumes:
+      - redis-data:/bitnami/redis/data
+
+volumes:
+  redis-data:

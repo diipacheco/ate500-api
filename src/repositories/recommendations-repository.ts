@@ -1,8 +1,12 @@
-import { type Recommendation, Prisma } from "generated/prisma";
+export type Recommendation = {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  link: string;
+  createdAt: Date;
+};
 
 export interface RecommendationsRepository {
   findAll(): Promise<Recommendation[]>;
-  create(
-    data: Prisma.RecommendationUncheckedCreateInput,
-  ): Promise<Recommendation>;
 }

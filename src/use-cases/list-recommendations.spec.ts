@@ -1,7 +1,8 @@
 import { describe, expect, it, beforeEach } from "vitest";
 
-import { ImMemoryRecommendationsRepository } from "@/repositories/in-memory/in-memory-recommendations-repository";
 import { makeRecommendation } from "@/tests/factories/make-recommendations-factory";
+
+import { ImMemoryRecommendationsRepository } from "@/repositories/in-memory/in-memory-recommendations-repository";
 
 import { ListRecommendationsUseCase } from "./list-recommendations";
 
@@ -15,8 +16,7 @@ describe("List recommendations use case", () => {
   });
 
   it("should be able to list recommendations", async () => {
-    await recommendationsRepository.create(makeRecommendation());
-
+    recommendationsRepository.recommendations.push(makeRecommendation());
     const recommendations = await sut.execute();
 
     expect(recommendations).toHaveLength(1);

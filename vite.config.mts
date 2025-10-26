@@ -12,18 +12,14 @@ export default defineConfig({
           dir: "src/use-cases",
         },
       },
-      {
-        extends: true,
-        test: {
-          name: "e2e",
-          dir: "src/http/controllers",
-          environment:
-            "./prisma/vitest-environment-prisma/prisma-test-environment.ts",
-        },
-      },
     ],
     coverage: {
-      exclude: ["prisma", "generated"],
+      exclude: [
+        "prisma",
+        "generated",
+        "node_modules",
+        "src/use-cases/factories/**",
+      ],
       include: [
         "src/use-cases/**",
         "src/errors/**",
